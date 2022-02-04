@@ -1,7 +1,10 @@
 import axiosInstance from "./axiosInstance";
-
+interface TweetType {
+  id: string;
+  body: string;
+}
 const getAll = async () => {
-  return axiosInstance.get("/tweets");
+  return axiosInstance.get<TweetType[]>("/tweets");
 };
 const getOne = async (tweetId: string) => {
   return axiosInstance.get(`/tweets/${tweetId}`);
